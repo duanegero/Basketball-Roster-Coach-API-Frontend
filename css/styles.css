@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        /* Start transparent */
+    }
+
+    to {
+        opacity: 1;
+        /* Fade to visible */
+    }
+}
+
+@keyframes flip {
+    from {
+        transform: perspective(400px) rotateY(0);
+    }
+
+    to {
+        transform: perspective(400px) rotateY(360deg);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    20%,
+    60% {
+        transform: scale(1.3);
+    }
+
+    40%,
+    80% {
+        transform: scale(1.1);
+    }
+}
+
+/* Buttons at top of the page */
+#coach-master-btn,
+#player-master-btn,
+#goto-addcoach-btn,
+#goto-addplayer-btn,
+#goto-updateplayer-btn,
+#goto-updatecoach-btn,
+#goto-deleteplayer-btn,
+#goto-deletecoach-btn,
+#goto-allplayers-btn {
+    background-color: #2980b9;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1.25px;
+}
+
+/* Buttons at top of the page */
+#coach-master-btn::after,
+#player-master-btn::after,
+#goto-addplayer-btn::after,
+#goto-addcoach-btn::after,
+#goto-updateplayer-btn::after,
+#goto-updatecoach-btn::after,
+#goto-deleteplayer-btn::after,
+#goto-deletecoach-btn::after,
+#goto-allplayers-btn::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    left: -100%;
+    top: 0;
+    transition: all 0.5s;
+    z-index: 0;
+}
+
+/* Buttons at top of the page */
+#coach-master-btn:hover::after,
+#player-master-btn:hover::after,
+#goto-addplayer-btn:hover::after,
+#goto-addcoach-btn:hover::after,
+#goto-updateplayer-btn:hover::after,
+#goto-updatecoach-btn:hover::after,
+#goto-deleteplayer-btn:hover::after,
+#goto-deletecoach-btn:hover::after,
+#goto-allplayers-btn:hover::after {
+    left: 100%;
+}
+
+/* Buttons at top of the page */
+#coach-master-btn:hover,
+#player-master-btn:hover,
+#goto-addplayer-btn:hover,
+#goto-addcoach-btn:hover,
+#goto-updateplayer-btn:hover,
+#goto-updatecoach-btn:hover,
+#goto-deleteplayer-btn:hover,
+#goto-deletecoach-btn:hover,
+#goto-allplayers-btn:hover {
+    color: #000;
+}
+
+/* Header on coaching pages */
+#find-coach-header,
+#post-coach-header,
+#put-coach-header,
+#delete-coach-page-header {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 5.5em;
+    color: white;
+    text-shadow: 3.5px 3.5px 7px rgb(255, 0, 0);
+    animation: fadeIn 5s;
+}
+
+/* Body of coaching pages */
+#coaches-body,
+#post-coach-body,
+#put-coach-body,
+#delete-coach-body {
+    background-color: black;
+}
+
+#page-header,
+#post-player-header,
+#put-player-header,
+#delete-player-page-header {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 5.5em;
+    color: black;
+    text-shadow: 3.5px 3.5px 7px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 3s;
+}
+
+#team-header,
+#get-header {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 2.23em;
+    font-style: italic;
+    color: black;
+    text-shadow: 2.5px 2.5px 5px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 5s;
+}
+
+#delete-team-header{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 2.23em;
+    font-style: italic;
+    color: white;
+    text-shadow: 3.5px 3.5px 7px rgb(255, 0, 0);
+    animation: fadeIn 3s;
+
+}
+
+/* Main div on each page */
+#select-team-div,
+#get-player-div,
+#find-coach-div,
+#post-player-div,
+#post-coach-div,
+#put-player-div,
+#put-coach-div,
+#delete-player-div,
+#delete-coach-div,
+#get-full-team-div{
+    text-align: center;
+}
+
+#teamOne-label,
+#teamTwo-label,
+#teamThree-label {
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    position: relative;
+    padding-left: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #3c3c3c;
+    transition: color 0.3s;
+    animation: fadeIn 7s;
+
+}
+
+#coach-teamOne-label,
+#coach-teamTwo-label,
+#coach-teamThree-label{
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    position: relative;
+    padding-left: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: rgb(251, 251, 251);
+    transition: color 0.3s;
+    animation: fadeIn 7s;
+}
+
+
+
+#teamOne-label:hover,
+#teamTwo-label:hover,
+#teamThree-label:hover {
+    color: #2980b9;
+}
+
+#get-id-lable, #delete-player-id-label {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: flip 1.5s ease-in-out;
+}
+
+#get-coach-label, #post-coach-form label, #put-coach-form label, #delete-coach-id-label{
+    font-family: "Lato", sans-serif;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: flip 1.5s ease-in-out;
+}
+
+#get-id-lable:hover, #delete-player-id-label:hover {
+    background-color: #2980b9;
+}
+
+#get-id, #delete-player-id, #delete-coach-id {
+    padding: 10px;
+    font-size: larger;
+    border: 1px solid #ccc;
+}
+
+#get-coach-id {
+    padding: 10px;
+    font-size: larger;
+    border: 1px solid #727272;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    background-color: #f1f1f1c3;
+}
+
+#get-btn {
+    background-color: rgb(85, 85, 85);
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #f1f1f1c3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    margin: 2em;
+
+}
+
+#get-coach-btn{
+    background-color: rgb(233, 233, 233);
+    color: black;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #f1f1f1c3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    margin: 2em;
+}
+
+#post-coach-btn,
+#put-coach-btn,
+#delete-coach-btn {
+    background-color: rgb(233, 233, 233);
+    color: black;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #f1f1f1c3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    margin: 2em;
+}
+
+#get-btn:active {
+    box-shadow: none;
+    transform: translateY(4px);
+
+}
+
+#player-info-div,
+#add-player-info-div,
+#put-player-info-div {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 1px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid black;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#coach-info-div {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 1px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    text-align: left;
+    background-color: #f9f9f9c4;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#add-coach-info-div,
+#put-coach-info-div {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 1px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    text-align: left;
+    background-color: #f9f9f9c4;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#post-player-form, #post-coach-form, #put-player-form, #put-coach-form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 10px;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#post-player-form label, #put-player-form label{
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    letter-spacing: 0.75px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: flip 1.5s ease-in-out;
+}
+
+
+#post-player-name,
+#post-player-age,
+#post-player-email,
+#post-player-team,
+#post-coach-name,
+#post-coach-team,
+#post-coach-assistant-name,
+#put-player-id,
+#put-player-name,
+#put-player-age,
+#put-player-email,
+#put-coach-team,
+#put-coach-id,
+#put-coach-name,
+#put-coach-assistant,
+#put-player-team
+{
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+#post-player-btn, #put-player-btn, #delete-player-btn {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    background-color: rgb(85, 85, 85);
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #f1f1f1c3;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+#team-table th{
+    padding: 15px;
+    margin: 10px;
+    width: 150px; 
+    text-align: left;
+    background-color: #f9f9f9;
+    color: black;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    font-size: larger;
+    text-align: center;
+}
+
+#team-table td{
+    padding: 12px;
+    width: 150px; 
+    text-align: left;
+    background-color: #f9f9f9;
+    color: black;
+    font-weight: bold;
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    text-align: center;
+
+
+}
+
+#full-team-display-div{
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 75vh;
+}
+
+#login-form {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 5px;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    border: 2px solid #bcbcbc;
+    padding: 35px;
+    border-radius: 25px;
+    background-color: #f4f4f4;
+
+}
+
+#login-btn {
+    grid-column: 1 / -1;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    letter-spacing: 3px;
+    background-color: #3df310;
+    border-radius: 50px;
+    box-shadow: inset 4px 4px 10px #008202, inset -4px -4px 10px #beffb5;
+    color: #4d4d4d;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid rgb(119, 220, 124);
+}
+
+#login-btn:hover {
+    box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+}
+
+#login-btn:focus {
+    outline: none;
+    box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+}
+
+#login-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}

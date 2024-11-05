@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Player</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="coach-master-btn" onclick="coachMaster()">Find Coach</button>
+    <button type="button" id="goto-addplayer-btn" onclick="postPlayerPage()">Add Player</button>
+    <button type="button" id="goto-addcoach-btn" onclick="postCoachPage()">Add Coach</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deletecoach-btn" onclick="deleteCoachPage()">Delete Coach</button>
+    <button type="button" id="goto-allplayers-btn" onclick="getAllPlayers()">Find Team</button>
+    <h1 id="delete-player-page-header">Delete Player</h1>
+    <div id="select-team-div">
+        <h3 id="team-header">Select Team</h3>
+        <input type="radio" id="teamOne" name="team" value="team1" required>
+        <label for="teamOne" id="teamOne-label">Team One</label><br>
+        <input type="radio" id="teamTwo" name="team" value="team2" required>
+        <label for="teamTwo" id="teamTwo-label">Team Two</label><br>
+        <input type="radio" id="teamThree" name="team" value="team3" required>
+        <label for="teamThree" id="teamThree-label">Team Three</label><br><br>
+    </div>
+    <div id="delete-player-div">
+        <form id="delete-player-form">
+            <label for="delete-player-id" id="delete-player-id-label">Player ID:</label>
+            <input id="delete-player-id" type="number" min="1" max="20" placeholder="ID" required>
+        </form>
+        <button type="button" id="delete-player-btn" onclick="deletePlayer()">Delete</button> 
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+</body>
+</html>

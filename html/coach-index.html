@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Coach</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="coaches-body">
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="goto-addplayer-btn" onclick="postPlayerPage()">Add Player</button>
+    <button type="button" id="goto-addcoach-btn" onclick="postCoachPage()">Add Coach</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deleteplayer-btn" onclick="deletePlayerPage()">Delete Player</button>
+    <button type="button" id="goto-deletecoach-btn" onclick="deleteCoachPage()">Delete Coach</button>
+    <button type="button" id="goto-allplayers-btn" onclick="getAllPlayers()">Find Team</button>
+    <h1 id="find-coach-header">Find Coach</h1>
+    <div id="find-coach-div">
+        <form id="get-coach-form">
+            <label id="get-coach-label" for="get-coach-id">Coach ID:</label>
+            <input id="get-coach-id" type="number" min="0" max="20" placeholder="ID" required>
+            <br><button id="get-coach-btn" type="button" onclick="getCoach()">Find</button>
+        </form>
+    </div>
+    <div id="coach-info-div">
+        <p id="coach-id"></p>
+        <p id="coach-name"></p>
+        <p id="coach-team"></p>
+        <p id="assistant-coach"></p>
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+</body>
+
+</html>

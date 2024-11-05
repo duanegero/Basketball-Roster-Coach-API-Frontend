@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Team</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+<body>
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="coach-master-btn" onclick="coachMaster()">Find Coach</button>
+    <button type="button" id="goto-addplayer-btn" onclick="postPlayerPage()">Add Player</button>
+    <button type="button" id="goto-addcoach-btn" onclick="postCoachPage()">Add Coach</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deleteplayer-btn" onclick="deletePlayerPage()">Delete Player</button>
+    <button type="button" id="goto-deletecoach-btn" onclick="deleteCoachPage()">Delete Coach</button>
+    <h1 id="page-header">Find Team</h1>
+    <div id="get-full-team-div">
+        <h3 id="team-header">Select Team</h3>
+        <input type="radio" id="teamOne" name="team" value="team1" required>
+        <label for="teamOne" id="teamOne-label">Team One</label><br>
+        <input type="radio" id="teamTwo" name="team" value="team2" required>
+        <label for="teamTwo" id="teamTwo-label">Team Two</label><br>
+        <input type="radio" id="teamThree" name="team" value="team3" required>
+        <label for="teamThree" id="teamThree-label">Team Three</label><br>
+        <button id="get-btn" type="button" onclick="allPlayers()">Find</button>
+    </div>
+    <div id="full-team-display-div">
+        <table id="team-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+           <tbody>
+           </tbody>
+        </table>
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+    <!--DOTO: make div to handle response data and display on the screen (prob just the name and ID), create function for buttons and add other buttons to top this page -->
+</body>
+</html>

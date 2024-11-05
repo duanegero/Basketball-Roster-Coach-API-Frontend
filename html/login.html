@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+
+<body>
+    <div id="login-div">
+        <form id="login-form">
+            <label for="user-login" id="user-login-lable">Username:</label>
+            <input id="user-login" type="text" placeholder="Enter you uername" required>
+            <label for="user-password" id="user-password-lable">Password:</label>
+            <input id="user-password" type="password" placeholder="Enter your password" required>
+            <button id="login-btn" type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+    <script type="module" src="../dist/login.bundle.js"></script>
+</body>
+
+</html>

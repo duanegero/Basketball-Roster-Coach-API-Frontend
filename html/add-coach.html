@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Coach</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+
+<body id="post-coach-body">
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="coach-master-btn" onclick="coachMaster()">Find Coach</button>
+    <button type="button" id="goto-addplayer-btn" onclick="postPlayerPage()">Add Player</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deleteplayer-btn" onclick="deletePlayerPage()">Delete Player</button>
+    <button type="button" id="goto-deletecoach-btn" onclick="deleteCoachPage()">Delete Coach</button>
+    <button type="button" id="goto-allplayers-btn" onclick="getAllPlayers()">Find Team</button>
+    <h1 id="post-coach-header">Add Coach</h1>
+    <div id="post-coach-div">
+        <form id="post-coach-form">
+            <label for="post-coach-name" id="post-coach-name-label">Coach Name:</label>
+            <input id="post-coach-name" type="text" required placeholder="First Name">
+            <label for="post-coach-team" id="post-coach-team-label">Team:</label>
+            <input id="post-coach-team" type="text" required placeholder="Team Name">
+            <label for="post-coach-assistant-name" id="post-coach-assistant-name-label">Assistant:</label>
+            <input id="post-coach-assistant-name" type="text" required placeholder="Assistant">
+        </form>
+        <button type="submit" onclick="postCoach()" id="post-coach-btn">Add Coach</button>
+    </div>
+    <div id="add-coach-info-div">
+        <p id="post-coach-id-p">t</p>
+        <p id="post-coach-name-p"></p>
+        <p id="post-coach-team-p"></p>
+        <p id="post-coach-assistant-coach-name-p"></p>
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+</body>
+
+</html>

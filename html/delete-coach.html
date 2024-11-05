@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Coach</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body id="delete-coach-body">
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="coach-master-btn" onclick="coachMaster()">Find Coach</button>
+    <button type="button" id="goto-addplayer-btn" onclick="postPlayerPage()">Add Player</button>
+    <button type="button" id="goto-addcoach-btn" onclick="postCoachPage()">Add Coach</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deleteplayer-btn" onclick="deletePlayerPage()">Delete Player</button>
+    <button type="button" id="goto-allplayers-btn" onclick="getAllPlayers()">Find Team</button>
+    <h1 id="delete-coach-page-header">Delete Coach</h1>
+    <div id="delete-coach-div">
+        <form id="delete-coach-form">
+            <label for="delete-coach-id" id="delete-coach-id-label">Coach ID:</label>
+            <input id="delete-coach-id" type="number" min="1" max="20" placeholder="ID" required>
+        </form>
+        <button type="button" id="delete-coach-btn" onclick="deleteCoach()">Delete</button>
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+</body>
+
+</html>

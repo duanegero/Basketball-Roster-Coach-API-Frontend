@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Player</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+
+<body>
+    <button type="button" id="player-master-btn" onclick="playerMaster()">Find Player</button>
+    <button type="button" id="coach-master-btn" onclick="coachMaster()">Find Coach</button>
+    <button type="button" id="goto-addcoach-btn" onclick="postCoachPage()">Add Coach</button>
+    <button type="button" id="goto-updateplayer-btn" onclick="putPlayerPage()">Update Player</button>
+    <button type="button" id="goto-updatecoach-btn" onclick="putCoachPage()">Update Coach</button>
+    <button type="button" id="goto-deleteplayer-btn" onclick="deletePlayerPage()">Delete Player</button>
+    <button type="button" id="goto-deletecoach-btn" onclick="deleteCoachPage()">Delete Coach</button>
+    <button type="button" id="goto-allplayers-btn" onclick="getAllPlayers()">Find Team</button>
+    <h1 id="post-player-header">Add Player</h1>
+    <div id="post-player-div">
+        <form id="post-player-form">
+            <label for="post-player-name" id="post-player-name-label">Player Name:</label>
+            <input id="post-player-name" type="text" required placeholder="First Name">
+            <label for="post-player-age" id="post-player-age-lable">Player Age:</label>
+            <input id="post-player-age" type="number" min="1" max="100" required placeholder="Age">
+            <label for="post-player-email" id="post-player-email-label">Player Email:</label>
+            <input id="post-player-email" type="email" required placeholder="Email">
+            <label for="post-player-team" id="post-player-team-label">Player Team:</label>
+            <select id="post-player-team" name="team-name">
+                <option value="" selected disabled hidden>Choose an option</option>
+                <option value="team1">Team One</option>
+                <option value="team2">Team Two</option>
+                <option value="team3">Team Three</option>
+            </select><br>
+            <button type="submit" id="post-player-btn" onclick="postPlayer()">Add Player</button>
+        </form>
+    </div>
+    <div id="add-player-info-div">
+        <p id="post-player-id-p"></p>
+        <p id="post-player-name-p"></p>
+        <p id="post-player-age-p"></p>
+        <p id="post-player-email-p"></p>
+        <p id="post-player-team-p"></p>
+    </div>
+    <script type="module" src="../dist/app.bundle.js"></script>
+</body>
+
+</html>
