@@ -20,3 +20,10 @@ The app provides an interactive interface for users to Create, Read, Update and 
 
 1. **Create/Post**<br>
 Add a new player or coach to the database.
+2. **Read/Get**<br>
+Find players or coach in the database based on ID/Team Name.
+3. **Update/Put**<br>
+Change a player or cocah's information in the database.
+4. **Delete**<br>
+Permitinly remove a player or coach from the database. 
+
