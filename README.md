@@ -27,3 +27,8 @@ Change a player or cocah's information in the database.
 4. **Delete**<br>
 Permitinly remove a player or coach from the database. 
 
+### Example
+To update a player:
+- Click "Update Player" button
+- Fill out all the form fields
+- Click the "Update" Button to send data to the backend
