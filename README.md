@@ -13,5 +13,5 @@ This HTLM, CSS and JS frontend app will allow you to interact with the backend A
   ```npm install```
 ## Usage
 ### Backend Repository
-[Basketball-Roster-Coach-API](https://github.com/duanegero/Basketball-Roster-Coach-API.git)
+[Basketball-Roster-Coach-API](https://github.com/duanegero/Basketball-Roster-Coach-API.git)<br>
 Ensure the backend API server is running and configured to allow requests from the frontend.
