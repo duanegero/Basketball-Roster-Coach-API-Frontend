@@ -3,9 +3,9 @@ const teamUrl = 'http://localhost:3000'; //setting variable for root URL
 
 //async function to handle find player button
 window.getPlayer = async () => {
-    
+
     //Get the selected radio button element
-    const selectedTeamRadio = document.querySelector('input[name=team]:checked'); 
+    const selectedTeamRadio = document.querySelector('input[name=team]:checked');
 
     //if no team selected alert user
     if (!selectedTeamRadio) {
@@ -33,7 +33,7 @@ window.getPlayer = async () => {
     //starting try catch
     try {
         //Sending a GET request to fetch details from API using selected player ID
-        const response = await axios.get(`${teamUrl}/${selectedTeam}/${selectedPlayerId}`) 
+        const response = await axios.get(`${teamUrl}/${selectedTeam}/${selectedPlayerId}`)
 
         console.log("Player found", response.data) //logging the data to console
 
@@ -59,7 +59,7 @@ window.getPlayer = async () => {
 window.getCoach = async () => {
 
     //Retrieving info from the input field
-    const selectedCoachId = document.getElementById('get-coach-id').value; 
+    const selectedCoachId = document.getElementById('get-coach-id').value;
 
     //if no input alert user 
     if (!selectedCoachId) {
@@ -76,7 +76,7 @@ window.getCoach = async () => {
     //starting try and catch
     try {
         //Sending a GET request to fetch details from API using selected coach ID
-        const response = await axios.get(`${teamUrl}/coaches/${selectedCoachId}`); 
+        const response = await axios.get(`${teamUrl}/coaches/${selectedCoachId}`);
 
         console.log(response.data);
 
@@ -145,7 +145,7 @@ window.postPlayer = async () => {
         const response = await axios.post(`${teamUrl}/${team}`, newPlayer);
         console.log('Player Added', response.data)
 
-         //Populate HTML elements with response data from API
+        //Populate HTML elements with response data from API
         playerId.innerHTML = `ID: ${response.data.id}`
         playerName.innerHTML = `Name: ${response.data.first_name}`
         playerAge.innerHTML = `Age: ${response.data.age}`
@@ -202,7 +202,7 @@ window.postCoach = async () => {
         console.log('Coach Added', response.data);
         console.log(response.data.id);
 
-         //Populate HTML elements with response data from API
+        //Populate HTML elements with response data from API
         coachId.innerHTML = `ID: ${response.data.id}`;
         coachName.innerHTML = `Name: ${response.data.first_name}`;
         coachTeam.innerHTML = `Team: ${response.data.team}`;
@@ -218,7 +218,7 @@ window.postCoach = async () => {
 
 //async function to handle update player button
 window.putPlayer = async () => {
-    
+
     //Retrieving info from the input fields
     const id = document.getElementById('put-player-id').value;
     const firstname = document.getElementById('put-player-name').value;
@@ -280,12 +280,14 @@ window.putPlayer = async () => {
 
     } catch (error) {
         console.log("Error", error)
+        alert("Player not found. Try Again");
+        return;
     }
 }
 
 //async function to handle update coach function 
 window.putCoach = async () => {
-    
+
     //Retrieving info from the input fields
     const id = document.getElementById('put-coach-id').value;
     const name = document.getElementById('put-coach-name').value;
@@ -338,13 +340,15 @@ window.putCoach = async () => {
         document.getElementById('put-coach-info-div').style.display = 'block';
 
     } catch (error) {
-        console.log("Error", error)
+        console.log("Error", error);
+        alert("Coach not found. Try again");
+        return;
     }
 }
 
 //async function to handle delete player button
 window.deletePlayer = async () => {
-    
+
     //Retrieving info from the input fields
     const selectedTeam = document.querySelector('input[name="team"]:checked');
     const team = selectedTeam ? selectedTeam.value : null;
@@ -360,23 +364,37 @@ window.deletePlayer = async () => {
         return;
     }
 
-    //asking user to confirm deletion 
-    const isConfirmed = window.confirm(`Are you sure you want to delete Team: ${team} Player ID: ${id}?`);
+    try {
+        const response = await axios.get(`${teamUrl}/${team}/${id}`)
 
-    //if isConfirmed true
-    if (isConfirmed)
-        try {
-            //Sending a DELETE request to fetch details from API with Player ID
-            await axios.delete(`${teamUrl}/${team}/${id}`)
-            alert(`Team: ${team} ID: ${id} Deleted`)
-        } catch (error) {
+        if (response.status === 200) {
+            //asking user to confirm deletion 
+            const isConfirmed = window.confirm(`Are you sure you want to delete Team: ${team} Player ID: ${id}?`);
+
+            //if isConfirmed true
+            if (isConfirmed) {
+                //Sending a DELETE request to fetch details from API with Player ID
+                await axios.delete(`${teamUrl}/${team}/${id}`);
+                alert(`Team: ${team} ID: ${id} Deleted`);
+            }
+        } else {
+            alert('Player not found. Try again')
+        }
+
+
+    } catch (error) {
+        if (error.response && error.response.status === 404) {
+            alert('Player not found.');
+
+        } else {
             console.log('Error', error)
         }
+    }
 }
 
 //async function to handle delete coach button 
 window.deleteCoach = async () => {
-   
+
     //Retrieving info from the input fields
     const id = document.getElementById('delete-coach-id').value
 
@@ -386,26 +404,39 @@ window.deleteCoach = async () => {
         return;
     }
 
-    //asking user to confirm deletion 
-    const isConfirmed = window.confirm(`Are you sure you want to delete Coach: ${id} ?`);
+    try {
 
-    //if isConfirmed true
-    if (isConfirmed)
-        try {
-            //Sending a DELETE request to API to delete requested coach ID 
-            await axios.delete(`${teamUrl}/coaches/${id}`);
-            alert(`Coach: ${id} deleted.`);
-        } catch (error) {
+        const response = await axios.get(`${teamUrl}/coaches/${id}`);
+
+        if (response.status === 200) {
+            //asking user to confirm deletion 
+            const isConfirmed = window.confirm(`Are you sure you want to delete Coach: ${id} ?`);
+
+            //if isConfirmed true
+            if (isConfirmed) {
+                //Sending a DELETE request to API to delete requested coach ID 
+                await axios.delete(`${teamUrl}/coaches/${id}`);
+                alert(`Coach: ${id} deleted.`);
+            }
+        } else {
+            alert("Coach not found. Try again")
+        }
+
+    } catch (error) {
+        if (error.response && error.response.status === 404) {
+            alert('Coach not found. Try again');
+        } else {
             console.log('Error', error);
         }
 
 
+    }
 }
 
 window.allPlayers = async () => {
 
     //Get the selected radio button element
-    const selectedTeamRadio = document.querySelector('input[name=team]:checked'); 
+    const selectedTeamRadio = document.querySelector('input[name=team]:checked');
 
     //if no team selected alert user
     if (!selectedTeamRadio) {
@@ -415,7 +446,7 @@ window.allPlayers = async () => {
 
     const selectedTeam = selectedTeamRadio.value; //assign value from radio button to variable
 
-    try{
+    try {
         const response = await axios.get(`${teamUrl}/${selectedTeam}`);
         const data = response.data
         console.log(response.data)
@@ -437,7 +468,7 @@ window.allPlayers = async () => {
 
             playerTableBody.appendChild(row);
         });
-    }catch(error){
+    } catch (error) {
         console.log('Error', error)
     }
 }
