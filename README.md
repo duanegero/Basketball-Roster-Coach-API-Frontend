@@ -1,6 +1,6 @@
 # Basketball Roster Coach API (Frontend)
 
-This HTLM, CSS and JS frontend app will allow you to interact with the backend API to manage and display data.
+This HTML, CSS and JS frontend app will allow you to interact with the backend API to manage and display data.
 
 - [Installation](#installation)
 - [Backend Repository](#backend)
@@ -23,9 +23,9 @@ Add a new player or coach to the database.
 2. **Read/Get**<br>
 Find players or coach in the database based on ID/Team Name.
 3. **Update/Put**<br>
-Change a player or cocah's information in the database.
+Change a player or coach's information in the database.
 4. **Delete**<br>
-Permitinly remove a player or coach from the database. 
+Permanently remove a player or coach from the database. 
 
 ### Example
 To update a player:
