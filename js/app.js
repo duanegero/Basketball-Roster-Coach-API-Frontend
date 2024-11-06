@@ -48,6 +48,10 @@ window.getPlayer = async () => {
         document.getElementById('player-info-div').style.display = 'block';
     } catch (error) {
         console.log('Error', error); //catch handling any errors 
+        //alert user 
+        alert("Player not found. Try again");
+        return;
+
     }
 };
 
@@ -85,7 +89,10 @@ window.getCoach = async () => {
         //making the element visible that contains response data
         document.getElementById('coach-info-div').style.display = 'block';
     } catch (error) {
-        console.log('Error', error);
+        console.log('Error', error); //console log any errors
+        alert('Coach not found. Try again');
+        return;
+
     }
 };
 
@@ -477,4 +484,21 @@ window.deleteCoachPage = async () => {
 //async function to go to get all players HTML
 window.getAllPlayers = () => {
     window.location.href = 'get-all-players.html'
-}
+};
+
+//function to restrict anything but letters in inputs
+const restrictToLetters = () => {
+    //find all the inputs with letter only class
+    const letterInputs = document.querySelectorAll('.letters-only');
+
+    //loop through each input element
+    letterInputs.forEach(input => {
+        //add input event listener
+        input.addEventListener('input', (e) => {
+            //replace characters with empty string
+            e.target.value = e.target.value.replace(/[^A-Za-z]/g, '');
+        });
+    });
+};
+//load all DOM content then run the function
+document.addEventListener('DOMContentLoaded', restrictToLetters);
