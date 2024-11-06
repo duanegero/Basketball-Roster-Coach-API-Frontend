@@ -32,3 +32,7 @@ To update a player:
 - Click "Update Player" button
 - Fill out all the form fields
 - Click the "Update" Button to send data to the backend
+
+## License
+
+This project is licensed under the MIT License.
