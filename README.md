@@ -3,7 +3,7 @@
 This HTLM, CSS and JS frontend app will allow you to interact with the backend API to manage and display data.
 
 - [Installation](#installation)
-- [Backend Repository](#backendrepository)
+- [Backend Repository](#backend repository)
 - [Usage](#usage)
 - [License](#license)
 
