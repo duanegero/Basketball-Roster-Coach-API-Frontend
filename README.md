@@ -18,5 +18,5 @@ Ensure the backend API server is running and configured to allow requests from t
 ## Usage
 The app provides an interactive interface for users to Create, Read, Update and Delete with data.<br>
 
-1. **Create/Post** 
-  - Add a new player or coach to the database.
+1. **Create/Post**<br>
+Add a new player or coach to the database.
