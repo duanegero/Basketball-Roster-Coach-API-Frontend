@@ -78,6 +78,7 @@ window.getCoach = async () => {
         //Sending a GET request to fetch details from API using selected coach ID
         const response = await axios.get(`${teamUrl}/coaches/${selectedCoachId}`);
 
+        //log the response for testing
         console.log(response.data);
 
         //Populate HTML elements with response data from API
@@ -90,6 +91,7 @@ window.getCoach = async () => {
         document.getElementById('coach-info-div').style.display = 'block';
     } catch (error) {
         console.log('Error', error); //console log any errors
+        //alret user of error 
         alert('Coach not found. Try again');
         return;
 
@@ -143,6 +145,7 @@ window.postPlayer = async () => {
     try {
         //Sending a POST request to fetch details from API with object
         const response = await axios.post(`${teamUrl}/${team}`, newPlayer);
+        //log response for testing
         console.log('Player Added', response.data)
 
         //Populate HTML elements with response data from API
@@ -266,6 +269,7 @@ window.putPlayer = async () => {
     try {
         //Sending a PUT request to fetch details from API with object
         const response = await axios.put(`${teamUrl}/${team}/${id}`, updatePlayer);
+        //log response for testing
         console.log(response.data)
 
         //Populate HTML elements with response data from API
@@ -279,7 +283,9 @@ window.putPlayer = async () => {
         document.getElementById('put-player-info-div').style.display = 'block';
 
     } catch (error) {
+        //log error
         console.log("Error", error)
+        //alreat user if not found
         alert("Player not found. Try Again");
         return;
     }
@@ -328,6 +334,7 @@ window.putCoach = async () => {
     try {
         //Sending a PUT request to fetch details from API with object
         const response = await axios.put(`${teamUrl}/coaches/${id}`, updateCoach);
+        //log response for testing
         console.log(response.data);
 
         //Populate HTML elements with response data from API
@@ -340,7 +347,9 @@ window.putCoach = async () => {
         document.getElementById('put-coach-info-div').style.display = 'block';
 
     } catch (error) {
+        //log the error
         console.log("Error", error);
+        //alert user if not found
         alert("Coach not found. Try again");
         return;
     }
@@ -365,8 +374,10 @@ window.deletePlayer = async () => {
     }
 
     try {
+        //send a GET request to ensure player exist
         const response = await axios.get(`${teamUrl}/${team}/${id}`)
 
+        //if response ok
         if (response.status === 200) {
             //asking user to confirm deletion 
             const isConfirmed = window.confirm(`Are you sure you want to delete Team: ${team} Player ID: ${id}?`);
@@ -375,9 +386,11 @@ window.deletePlayer = async () => {
             if (isConfirmed) {
                 //Sending a DELETE request to fetch details from API with Player ID
                 await axios.delete(`${teamUrl}/${team}/${id}`);
+                //alret user delete successful
                 alert(`Team: ${team} ID: ${id} Deleted`);
             }
         } else {
+            //if not ok alert user not found
             alert('Player not found. Try again')
         }
 
@@ -405,9 +418,10 @@ window.deleteCoach = async () => {
     }
 
     try {
-
+        //sending a GET request to ensure coach exist
         const response = await axios.get(`${teamUrl}/coaches/${id}`);
 
+        //if response ok
         if (response.status === 200) {
             //asking user to confirm deletion 
             const isConfirmed = window.confirm(`Are you sure you want to delete Coach: ${id} ?`);
@@ -416,16 +430,20 @@ window.deleteCoach = async () => {
             if (isConfirmed) {
                 //Sending a DELETE request to API to delete requested coach ID 
                 await axios.delete(`${teamUrl}/coaches/${id}`);
+                //alret user that delete successful
                 alert(`Coach: ${id} deleted.`);
             }
         } else {
+            //alret if coach not found
             alert("Coach not found. Try again")
         }
 
-    } catch (error) {
+    } catch (error) { //catch error 
+        //if coach not found alert user 
         if (error.response && error.response.status === 404) {
             alert('Coach not found. Try again');
         } else {
+            //log other errorss
             console.log('Error', error);
         }
 
@@ -446,29 +464,43 @@ window.allPlayers = async () => {
 
     const selectedTeam = selectedTeamRadio.value; //assign value from radio button to variable
 
+    //starting try
     try {
+        //send Get request with selected team 
         const response = await axios.get(`${teamUrl}/${selectedTeam}`);
+        //assign response data to variable
         const data = response.data
+        //log data for testing 
         console.log(response.data)
 
+        //creating variable to handle HTML table 
         const playerTableBody = document.getElementById('team-table').querySelector('tbody');
+        //clearing the table 
         playerTableBody.innerHTML = '';
 
+        //for loop to go through array of items in response 
         data.forEach(item => {
+            //creat a new row
             const row = document.createElement('tr');
 
+            //create a new table data cell
             const idCell = document.createElement('td');
+            //assign returned id to new cell
             idCell.textContent = item.id;
 
+            //create a new table data cell
             const nameCell = document.createElement('td');
+            //assign returned first name to new cell
             nameCell.textContent = item.first_name;
 
+            //adding the new cells to the row
             row.appendChild(idCell);
             row.appendChild(nameCell);
 
+            //adding the row to the table 
             playerTableBody.appendChild(row);
         });
-    } catch (error) {
+    } catch (error) { //catch and log any errors 
         console.log('Error', error)
     }
 }
@@ -497,6 +529,7 @@ window.postCoachPage = async () => {
 window.putPlayerPage = async () => {
     window.location.href = 'update-player.html'
 }
+
 //async function to go to update coach HTML
 window.putCoachPage = async () => {
     window.location.href = 'update-coach.html'
