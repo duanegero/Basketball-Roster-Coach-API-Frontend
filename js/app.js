@@ -1,5 +1,5 @@
 const axios = require('axios') //adding axios from npm
-const teamUrl = 'http://localhost:3000'; //setting variable for root URL
+const teamUrl = 'http://localhost:3001'; //setting variable for root URL
 
 //async function to handle find player button
 window.getPlayer = async () => {

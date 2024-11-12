@@ -1,5 +1,5 @@
 const axios = require('axios') //requiring axios from npm
-const teamUrl = 'http://localhost:3000'; //setting variable for root URL
+const teamUrl = 'http://localhost:3001'; //setting variable for root URL
 
 //creating async function 
 window.login = async () => {
